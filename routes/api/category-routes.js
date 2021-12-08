@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     const category = await Category.findAll();
     res.json(category);
   } catch (err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
