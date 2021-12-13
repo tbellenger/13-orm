@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   try {
     const tag = await Tag.findOne({
       where: {
-        id = req.params.id
+        id: req.params.id,
       },
       include: [
         {
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
       ],
     });
     if (!tag) {
-      res.status(404).json({message:"Unknown tag ID"});
+      res.status(404).json({ message: "Unknown tag ID" });
       return;
     } else {
       res.json(tag);
@@ -72,7 +72,7 @@ router.put("/:id", async (req, res) => {
       }
     );
     if (!update) {
-      res.status(404).json({message:"Tag with id not found"});
+      res.status(404).json({ message: "Tag with id not found" });
       return;
     }
     res.json(update);
